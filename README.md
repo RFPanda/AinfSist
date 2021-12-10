@@ -5,6 +5,7 @@
 ***
 </br><b>Программа:</b> </br>
 ExPRO 2.16 
+***
 </br><b>Скриншоты: </b> </br>
 ![](https://github.com/RFPanda/AinfSist/blob/main/1.png)
 ![](https://github.com/RFPanda/AinfSist/blob/main/2.png)
