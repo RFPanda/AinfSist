@@ -5,4 +5,4 @@
 ***
 </br><b>Программа:</b> </br>
 ExPRO 2.16
-![]https://github.com/RFPanda/AinfSist/blob/main/1.png)
+![](https://github.com/RFPanda/AinfSist/blob/main/1.png)
