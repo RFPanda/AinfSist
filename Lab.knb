@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<BZ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="9-Khasanov" Author="KhasanovAA" Version="1.0" CreateDate="25.09.2021 11:56:53" UpdateDate="25.09.2021 12:19:12">
+  <Comment />
+  <Variable xsi:type="NoType" Name="Покрытие" Goal="false">
+    <Goal>False</Goal>
+    <Comment />
+    <StartValue />
+    <Opredelena>false</Opredelena>
+  </Variable>
+  <Variable xsi:type="NoType" Name="Трасса" Goal="false">
+    <Goal>False</Goal>
+    <Comment />
+    <StartValue />
+    <Opredelena>false</Opredelena>
+  </Variable>
+  <Variable xsi:type="NoType" Name="Грунтовка" Goal="false">
+    <Goal>False</Goal>
+    <Comment />
+    <StartValue />
+    <Opredelena>false</Opredelena>
+  </Variable>
+  <Variable xsi:type="NoType" Name="ИскусственноеПокрытие" Goal="true">
+    <Goal>True</Goal>
+    <Comment />
+    <StartValue />
+    <Opredelena>false</Opredelena>
+  </Variable>
+  <Rule Name="Начало">
+    <Act>Покрытие=ВЫБОР("Есть ли искуственное покрытие?",["Да","Нет"])</Act>
+    <Enable>true</Enable>
+    <Priority>50</Priority>
+  </Rule>
+  <Rule Name="Трасса">
+    <Condition>Покрытие="Да"</Condition>
+    <Act>Трасса=ВЫБОР("Искусственное покрытие трасса?",["Да","Нет"])</Act>
+    <Enable>true</Enable>
+    <Priority>25</Priority>
+  </Rule>
+  <Rule Name="Грунтовая дорога">
+    <Condition>Трасса="Нет"</Condition>
+    <Act>Грунтовка=ВЫБОР("Искусственное покрытие грунтовая дорога?",["Да","Нет"])</Act>
+    <Enable>true</Enable>
+    <Priority>12.5</Priority>
+  </Rule>
+  <Rule Name="ИВВП">
+    <Condition>Грунтовка="Нет"</Condition>
+    <Act>ИскусственноеПокрытие="ИВВП"</Act>
+    <Act>ВЫВОД("Искусственное покрытие- взлёно-посадочная полоса")</Act>
+    <Enable>true</Enable>
+    <Priority>6.25</Priority>
+  </Rule>
+  <Rule Name="ГВПП">
+    <Condition>Грунтовка="Да"</Condition>
+    <Act>ИскусственноеПокрытие="ГВПП"</Act>
+    <Act>ВЫВОД("Искусственное покрытие - грунтовая взлётно-посадочная полоса;")</Act>
+    <Enable>true</Enable>
+    <Priority>3.125</Priority>
+  </Rule>
+  <Rule Name="ПокрытиеТрасса">
+    <Condition>Трасса="Да"</Condition>
+    <Act>ИскусственноеПокрытие="Трасса"</Act>
+    <Act>ВЫВОД("Искусственное покрытие- трасса")</Act>
+    <Enable>true</Enable>
+    <Priority>1.5625</Priority>
+  </Rule>
+  <Rule Name="ОтсутствПокрытия">
+    <Condition>Покрытие="Нет"</Condition>
+    <Act>ИскусственноеПокрытие="Отсутствует"</Act>
+    <Act>ВЫВОД("Нет искусственного покрытия")</Act>
+    <Enable>true</Enable>
+    <Priority>0.78125</Priority>
+  </Rule>
+</BZ>
